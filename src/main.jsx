@@ -4,13 +4,16 @@ import { BrowserRouter } from "react-router-dom"
 import { MantineProvider } from '@mantine/core';
 import Router from './Router'
 import './styles/index.css'
+import ErrorBoundary from './Components/Error/ErrorBoundary';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <MantineProvider withGlobalStyles withNormalizeCSS>
-        <Router />
-      </MantineProvider>
+      <ErrorBoundary>
+        <MantineProvider withGlobalStyles withNormalizeCSS>
+          <Router />
+        </MantineProvider>
+      </ErrorBoundary>
     </BrowserRouter>
   </StrictMode>,
 )
